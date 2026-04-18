@@ -1,0 +1,19 @@
+class Solution:
+    def countDigitOne(self, n: int) -> int:
+        c = 0
+        divider = 1
+        while divider <= n:
+            high = n // (divider * 10)
+            curr = (n // divider) % 10
+            low = n % divider
+            if curr == 0:
+                c+= high * divider
+            elif curr == 1:
+                c+= high * divider + low + 1
+            else:
+                c+= (high + 1) * divider
+            divider *= 10
+        return c
+
+        
+        
